@@ -21,12 +21,15 @@
 	font-size: 30px;
 }
 #results-div{
-	font-size: 6em;
+	font-size: 5em;
 }
 .radio-in-line{
 	margin: 10px;
 	font-size: 15px;
 }
-.question{
+#question-div{
 	font-size: 40px;
+}
+.oot-answer{
+	font-size: 30px;
 }

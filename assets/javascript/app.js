@@ -84,8 +84,6 @@ function count(){
 
 }
 function checkGuess(){
-	clearInterval(intervalId);
-
 	for (var i = 0; i <qA.length; i++) {
 		var userGuess = $('input[name = question'+i+']:checked').val();
 		console.log(userGuess);

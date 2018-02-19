@@ -51,8 +51,8 @@ var qA = [
 
 /*screen will first show: "press to start". once they press start, empty start div.*/
 
-$(".btn-block").on("click", function(){
-	$("#start-btn").html("");
+$(".start-btn").on("click", function(){
+	$("#start-btn-div").html("");
 	//next we need to ask questions and answers on screen.
 	//call funcAtion to do this:
 	questionsAnswers();
@@ -63,7 +63,7 @@ function questionsAnswers(){
 		timer();
 		$("#question-div").text(qA[i].question);
 		for (var j = 0; j < 4; j++) {
-			$("#choices-div").append("<p><button class='btn-sm choice-btn' value = '" + qA[i].choices[j]+ "'>"+qA[i].choices[j]+"</button></p>");
+			$("#choices-div").append("<p><button class='btn-sm choice-btn btn-block' value = '" + qA[i].choices[j]+ "'>"+qA[i].choices[j]+"</button></p>");
 		}
 	}
 	else{
@@ -74,7 +74,7 @@ function questionsAnswers(){
 $(document).on("click",".choice-btn",checkGuess)
 
 function timer(){
-	time = 4;
+	time = 3;
 	intervalId = setInterval(count,1000);
 }
 function count(){
@@ -114,7 +114,7 @@ function checkGuess(){
 		clearInterval(intervalId);
 		wait();
 		$("#results-div").append("<img class ='results-gif'src='assets/images/Trump.gif'/>");
-		$("#results-div").append("<p class = 'waiting-screen'>"+qA[i].answer+" is the capital!</p>");
+		$("#results-div").append("<p class = 'waiting-screen wrong-answer'>"+qA[i].answer+" is the capital!</p>");
 	}
 }
 
@@ -129,21 +129,28 @@ function wait(){
 	$("#question-div").empty();
 	$("#timer-div").empty();
 	console.log("waiting...");
-	var waitTime = 4;
-	timerId = setTimeout(nextQuestion,4000);
+	timerId = setTimeout(nextQuestion,3000);
 }
 
 function endScreen(){
 	$("#results-div").empty();
 	$("#results-div").append("<h1>ALL DONE!</h1>");
-	$("#results-div").append("<h3>Results: </h3>");
-	$("#results-div").append("<div>You got " + correct + " right!</div>");
-	$("#results-div").append("<div>You got "+ incorrect+ " wrong!</div>");
-	if(unanswered != 0){
-		$("#results-div").append("<div>You didnt answer: "+unanswered+"</div>");
+	// $("#results-div").append("<h3>Results: </h3>");
+	if(correct == qA.length){
+		$("#results-div").append("<div>You got all " + correct + " right!</div>");
+		$("#results-div").append("<div class = 'comment'>You know a lot about 'Murica</div>");
+		$("#results-div").append("<img class ='results-gif'src='assets/images/Murica.gif'/>");
+	}
+	else if(incorrect == qA.length){
+		$("#results-div").append("<div>You got all "+ incorrect+ " wrong...</div>");
+		$("#results-div").append("<img class ='results-gif'src='assets/images/idiot-sandwich.gif'/>");
+		$("#results-div").append("<div class = 'comment'>C'mon, Dude.</div>");
+	}
+	else{
+		$("#results-div").append("<div>You got " + correct + " right!</div>");
+		$("#results-div").append("<div>You got "+ incorrect+ " wrong!</div>");
+		if(unanswered != 0){
+			$("#results-div").append("<div>You didnt answer: "+unanswered+"</div>");
+		}
 	}
 }
-
-
-
-

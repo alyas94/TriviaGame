@@ -1,24 +1,30 @@
+body{
+	background-image: url("../images/memphis-colorful.png");
+	font-family: 'Oswald', sans-serif;
+}
 .container{
 	text-align: center;
 	max-width: 900px;
+	background-color: #fdf8f7;
+	min-height: 622px;
 }
 #TriviaGameTitle{
-	font-size: 6em;
-	color: red;
+	font-size: 5.5em;
+	color: #ff3a3a;
+    border-bottom: solid #98b6ff 1px;
+    font-family: 'Londrina Solid', cursive;
 }
 .btn-lg{
+	margin-top: 2em;
 	font-size: 4em;
 	background-color: #608bf1;
 	border-color: blue;
+	font-family: 'Londrina Solid', cursive;
 }
 .choice-btn{
-	font-size: 20px;
-	background-color: red;
-	border-color: red;
-	margin-right: 20px;
-}
-#question-div{
-	font-size: 30px;
+	font-size: 2em;
+	background-color: #ff5454;
+	border-color: #ff5454;
 }
 #results-div{
 	font-size: 5em;
@@ -27,9 +33,12 @@
 	margin: 10px;
 	font-size: 15px;
 }
-#question-div{
-	font-size: 40px;
+#question-div, .wrong-answer{
+	font-size: 55px;
 }
-.oot-answer{
-	font-size: 30px;
+.oot-answer, .comment{
+	font-size: 20px;
+}
+.results-gif{
+	max-height: 350px;
 }

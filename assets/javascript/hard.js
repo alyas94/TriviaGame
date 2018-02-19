@@ -74,7 +74,7 @@ function questionsAnswers(){
 $(document).on("click",".choice-btn",checkGuess)
 
 function timer(){
-	time = 3;
+	time = 10;
 	intervalId = setInterval(count,1000);
 }
 function count(){
@@ -129,13 +129,11 @@ function wait(){
 	$("#question-div").empty();
 	$("#timer-div").empty();
 	console.log("waiting...");
-	timerId = setTimeout(nextQuestion,3000);
+	timerId = setTimeout(nextQuestion,3500);
 }
 
 function endScreen(){
 	$("#results-div").empty();
-	$("#results-div").append("<h1>ALL DONE!</h1>");
-	// $("#results-div").append("<h3>Results: </h3>");
 	if(correct == qA.length){
 		$("#results-div").append("<div>You got all " + correct + " right!</div>");
 		$("#results-div").append("<div class = 'comment'>You know a lot about 'Murica</div>");
@@ -147,6 +145,7 @@ function endScreen(){
 		$("#results-div").append("<div class = 'comment'>C'mon, Dude.</div>");
 	}
 	else{
+		$("#results-div").append("<h1>ALL DONE!</h1>");
 		$("#results-div").append("<div>You got " + correct + " right!</div>");
 		$("#results-div").append("<div>You got "+ incorrect+ " wrong!</div>");
 		if(unanswered != 0){

@@ -13,8 +13,7 @@ var i = 0;
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-var time = 5;
-var waitTime;
+var time;
 var clockRunning = false;
 //object to hold our questions, answer choices and correct answer
 var qA = [
@@ -35,6 +34,18 @@ var qA = [
 			choices:["Burlington","Bennington","Stowe","Montpelier"],
 			answer: "Montpelier",
 			gif:"assets/images/Vermont.gif"
+		},
+		{
+			question: "What is the capital of Missouri?",
+			choices:["Springfield","St. Louis","Jefferson City","Kansas City"],
+			answer: "Jefferson City",
+			gif:"assets/images/Missouri.gif"
+		},
+		{
+			question: "What is the capital of Hawaii?",
+			choices:["Wailea","Honolulu","Kailua","Oahu"],
+			answer: "Honolulu",
+			gif:"assets/images/Hawaii.gif"
 		},
 	]
 
@@ -94,7 +105,6 @@ function checkGuess(){
 		clearInterval(intervalId);
 		wait();
 		$("#results-div").append("<p class = 'waiting-screen'>Great Job!</p>");
-		$("#results-div").append("<p class = 'waiting-screen'>"+userGuess+" is the capital!</p>");
 		$("#results-div").append("<img class ='results-gif'src='"+qA[i].gif+ "'/>");
 	}
 	else{
@@ -119,7 +129,7 @@ function wait(){
 	$("#question-div").empty();
 	$("#timer-div").empty();
 	console.log("waiting...");
-	waitTime = 4;
+	var waitTime = 4;
 	timerId = setTimeout(nextQuestion,4000);
 }
 

@@ -6,6 +6,7 @@ a timer to display how much time is left.
 
 function to display questions and answers
 if statment to tell if guess is right or wrong.
+-----easy version of the game-----
 */
 
 //variables to hold their scores:
